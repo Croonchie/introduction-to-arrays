@@ -1,41 +1,43 @@
-let declareArray = ["red", 5, "blue", "green", "true"];
+// Step 1: Declaring Arrays
+let mixedArray = [42, "apple", true, "banana", 3.14];
 
-let firstElement = declareArray[0];
-let secondElement = declareArray[2];
-let thirdElement = declareArray[4];
+// Step 2: Accessing Arrays
+let firstElement = mixedArray[0];
+let lastElement = mixedArray[mixedArray.length - 1];
+let middleElement = mixedArray[Math.floor(mixedArray.length / 2)];
 
-console.log(declareArray[0]);
-console.log(declareArray[2]);
-console.log(declareArray[4]);
+// Step 3: Using Array Properties
+console.log("Array Length:", mixedArray.length);
 
-let arrayLength = declareArray.length;
+// Step 4: Array Methods
+mixedArray.push("newItem"); // Add to the end
+console.log("After push:", mixedArray);
 
-console.log("Number of elements in the array:", arrayLength);
+mixedArray.unshift("startItem"); // Add to the beginning
+console.log("After unshift:", mixedArray);
 
-let lastArray = declareArray.pop();
+mixedArray.pop(); // Remove from the end
+console.log("After pop:", mixedArray);
 
-console.log(lastArray, "last array");
-console.log(declareArray, "array");
+mixedArray.splice(2, 1, "modifiedItem"); // Replace 1 item at index 2
+console.log("After splice:", mixedArray);
 
-declareArray.push("false");
+// Step 5: Iterating Through Arrays
 
-console.log(declareArray);
-
-let numbers = declareArray.filter(num => num >= 0);
-
-console.log("\n");
-
-console.log(numbers);
-
-console.log("\n");
-let iterator = declareArray.values();
-console.log(iterator, " - this is iterator");
-
-for (let value of iterator){
-  console.log(value);
+// Traditional for loop
+console.log("Traditional for loop:");
+for (let i = 0; i < mixedArray.length; i++) {
+  console.log(mixedArray[i]);
 }
 
-let [firstArray, secondArray] = declareArray;
-console.log("\n--This is step 6");
-console.log(firstArray);
-console.log(secondArray);
+// Modern forEach method
+console.log("forEach method:");
+mixedArray.forEach(element => {
+  console.log(element);
+});
+
+// Step 6: Array Destructuring
+const [first, second, ...rest] = mixedArray;
+console.log("First:", first);
+console.log("Second:", second);
+console.log("Rest:", rest);
